@@ -37,7 +37,7 @@
                               <div class="button" value="3" onclick="dis('3')">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" onclick="buttonClicked('back')"><</div>
+                                <div class="button" onclick="back ()"><</div>
                                 <div class="button" value="0" onclick="dis('0')">0</div>
                                 <div class="button" value="c" onclick="clr()"/>C</div>
                             </div>
@@ -86,7 +86,11 @@
         }
 
         // backspace button------
-        
+        function back (){
+        var edu = document.getElementById("edu").value;
+        edu = edu.slice(0,-1);
+        document.getElementById("edu").value = edu;
+}
         
 
 
