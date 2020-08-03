@@ -42,7 +42,7 @@
                                 <div class="button" value="c" onclick="clr()"/>C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button type="submit" class="submit-btn" onclick="submitButton()">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -59,13 +59,13 @@
         // hide the pin-----
         document.getElementById("wrongPin").style.display = "none";
         document.getElementById("rightPin").style.display = "none";
-        // alert(fourdigitsrandom)-----
+        // alert(founddigitsrandom)-----
         document.getElementById('random-pin').addEventListener('click', function(){
         let randomPin = Math.round(Math.random() * 9000) + 1000;
         document.getElementById('show-pin').value = randomPin;
         });
 
-        // CALCULATOR START HERE----
+        
 
        //function for displaying values
         function dis(val)
@@ -90,8 +90,27 @@
         var edu = document.getElementById("edu").value;
         edu = edu.slice(0,-1);
         document.getElementById("edu").value = edu;
-}
-        
+        }
+
+        // SUBMIT BUTTON------
+        // submit Button
+        function submitButton(){
+            let inputPin = document.getElementById("edu").value;
+            let generatedPin = document.getElementById("show-pin").value;
+            if(inputPin == "" && generatedPin == ""){
+                alert("You haven't generate pin yet.");
+            }
+            else if(inputPin == generatedPin){
+                document.getElementById("rightPin").style.display = "block"
+                document.getElementById("wrongPin").style.display = "none"
+            }
+            else{
+                document.getElementById("rightPin").style.display = "none"
+                document.getElementById("wrongPin").style.display = "block"
+                tryLeft();
+            }
+        }
+                
 
 
 
